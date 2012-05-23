@@ -1,12 +1,12 @@
+---
+---
 jQuery(document).ready(function() {
 	
-	$('#gf').text('GitHub Followers');
-    $('#gfr').text('GitHub Repos');		
+	$('#uq').text('Unanswered Questions');
 	
-	JSONP( 'https://api.github.com/users/erjjones?callback=?', function( response ) {
+	JSONP( 'https://api.github.com/repos/{{ site.organization }}/{{ site.repos }}/issues?callback=?', function( response ) {
 		var data = response.data;
-		$('#gf').text(data.followers + ' GitHub Followers');
-        $('#gfr').text(data.public_repos + ' GitHub Repos');
+		$('#uq').text(data.length + ' Unanwered Questions');
 	});
 	
 	function JSONP( url, callback ) {
@@ -19,15 +19,5 @@ jQuery(document).ready(function() {
 				callback( data );
 			}
 		};
-	}	
-	
-	$('#ghw').githubWidget({
-			'username': 'Erjjones',
-			'displayActions': false,
-			'firstCount': 10,
-			'displayHeader': false,
-			'displayLastCommit': false,
-			'displayAccountInformations': false,
-			'displayLanguage': false
-		});
+	}
 });

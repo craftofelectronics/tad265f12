@@ -3,12 +3,13 @@ markdown: rdiscount
 pygments: true
 permalink: /blog/:title
 
-course: Craft of Electronics (Fall 2012)
+organization: craftofelectronics
 repos: tad265f12
 pages_root: http://craftofelectronics.github.com/
 github_root: https://github.com/craftofelectronics/
 
-sections: [["Admin", [[syllabus, "Syllabus"], [todo, "To Do"]]]]
+course: Craft of Electronics
+sections: [["admin", "Admin", [[syllabus, "Syllabus"], [todo, "To Do"]]]]
 
 license_url: http://creativecommons.org/licenses/by/3.0/
 license_abbrev: CC BY-SA 3.0
