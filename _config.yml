@@ -1,0 +1,10 @@
+auto: true
+markdown: rdiscount
+pygments: true
+permalink: /blog/:title
+
+course: Craft of Electronics (Fall 2012)
+repos: tad265f12
+pages_root: http://craftofelectronics.github.com/
+github_root: https://github.com/craftofelectronics/
+
