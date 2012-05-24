@@ -10,8 +10,9 @@ This is a template for a Github Pages hosted course website, based on the work o
 
 I've used a number of resources in putting these tools together.
 
-* Eric's original framework leverages both Twitter Bootstrap and Jekyll.
-* Bootstrap uses many open source tools for compiling Less into CSS.
+* [Eric Jones](http://erjjones.github.com/blog/How-I-built-my-blog-in-one-day/)'s original pages leverage both Twitter [Bootstrap](http://jekyllbootstrap.com/) and [Jekyll](https://github.com/mojombo/jekyll/wiki).
+* Bootstrap uses many open source tools for compiling [Less](http://lesscss.org/) into CSS.
+* [Glyphicons Free.](http://glyphicons.com/)
 
 ## Setup
 
@@ -20,7 +21,8 @@ I've used a number of resources in putting these tools together.
 
 *... find alternative ...*
 
-* Install [Simpless](http://wearekiss.com/simpless)
+* Install [Simpless](http://wearekiss.com/simpless) (failed on compile... not new enough?)
+* Install [Crunch](https://github.com/matthewdl/Crunch/), which worked.
 
 ## Running the Site
 
