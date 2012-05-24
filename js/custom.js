@@ -36,15 +36,18 @@ jQuery(document).ready(function() {
 		var data = response.data;
 		var tab = $('#dashboard');
 		
+		data = data.sort(function(a, b) { return b.due_on < a.due_on; });
+		
 		for (var i = 0 ; i < data.length ; i++) {
 			var tr = $('<tr></tr>');
 			var tdl = $('<td></td>');
 			var tdr = $('<td style="text-align:right;"></td>');
 			a = jQuery('<a/>', {
-				href : "https://github.com/{{ site.organization }}/ {{ site.repos }}/issues/milestones",
+				href : "https://github.com/{{ site.organization }}/{{ site.repos }}/issues/milestones",
 				title : data[i].title,
 				text : data[i].title });
 			tdl.append(a);
+			
 			tdr.append(humaneDate(data[i].due_on));
 			
 			tr.append(tdl);
