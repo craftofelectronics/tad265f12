@@ -4,13 +4,58 @@
 
 jQuery(document).ready(function() {
 	
-	$('#uq').text('Unanswered Questions');
-	$('#due-dates').text('Due Dates');
+	//$('#uq').text('Unanswered Questions');
+	//$('#due-dates').text('Due Dates');
 	
 	JSONP( 'https://api.github.com/repos/{{ site.organization }}/{{ site.repos }}/issues?callback=?', function( response ) {
 		var data = response.data;
-		$('#uq').text(data.length + ' Unanwered Questions');
+		var num = data.length
+		
+		//$('#uq').text(data.length + ' Unanwered Questions');
+		if (num < 2) {
+			color = 'badge-success';
+		} else if (num < 3) {
+			color = 'badge-warning';
+		} else {
+			color = 'badge-important';
+		}
+		
+		var s = $('<span class="badge ' + color + '"></span>');
+		var a = jQuery('<a></a>', {
+			href : "https://github.com/{{ site.organization }}/{{ site.repos }}/issues?&state=open",
+			style : "color:#fff;",
+			title : data.length,
+			text : data.length });
+
+		s.append(a);
+		$('#uq').append(s);
 	});
+
+	
+	JSONP( 'https://api.github.com/repos/{{ site.organization }}/{{ site.repos }}/milestones?callback=?', function( response ) {
+		var data = response.data;
+		var tab = $('#dashboard');
+		
+		for (var i = 0 ; i < data.length ; i++) {
+			var tr = $('<tr></tr>');
+			var tdl = $('<td></td>');
+			var tdr = $('<td style="text-align:right;"></td>');
+			a = jQuery('<a/>', {
+				href : "https://github.com/{{ site.organization }}/ {{ site.repos }}/issues/milestones",
+				title : data[i].title,
+				text : data[i].title });
+			tdl.append(a);
+			tdr.append(humaneDate(data[i].due_on));
+			
+			tr.append(tdl);
+			tr.append(tdr);
+			tab.append(tr);
+		}
+		
+		//$('#due-dates').text(data.length + ' Due Dates');
+		$('#due-dates').append(ul);
+	});
+	
 	
 	/* 
 	[
@@ -34,33 +79,6 @@ jQuery(document).ready(function() {
   }
 ]
 */
-	
-	JSONP( 'https://api.github.com/repos/{{ site.organization }}/{{ site.repos }}/milestones?callback=?', function( response ) {
-		var data = response.data;
-		var ul = $('<ul></ul>');
-
-		console.log(data);
-		console.log(data.length);
-		
-		for (var i = 0 ; i < data.length ; i++) {
-
-			console.log(data[i]);
-			
-			var li = $('<li/>');
-			a = jQuery('<a/>', {
-				href : "https://github.com/{{ site.organization }}/ {{ site.repos }}/issues/milestones",
-				title : data[i].title,
-				text : data[i].title });
-			li.append(a);
-			li.append('<br/>');
-			li.append(data[i].due_on);
-			
-			ul.append(li);
-		}
-		
-		//$('#due-dates').text(data.length + ' Due Dates');
-		$('#due-dates').append(ul);
-	});
 	
 	function JSONP( url, callback ) {
 		var id = ( 'jsonp' + Math.random() * new Date() ).replace('.', '');
