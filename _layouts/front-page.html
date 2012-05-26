@@ -16,22 +16,27 @@
     <![endif]-->
   </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
+	
 {% include navigation.html %}
+
 <div class="container">
 	<div class="marketing">
 		<div class="content">	  
 			<div class="row">								
+
 			    <div class="span4 columns well">
 				  {% include front-page-blurb.html %}			  
 				</div>					
+
 				<div class="span6 columns">								
 					{{ content }} 					
 				</div>	
+
 				<!-- <div class="span4 columns">								
 					{% include tag_sidebar.html %}
 					{% include archive.html %} 
 				</div>	-->
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 			</div>
 		</div>
 	</div>
@@ -44,7 +49,12 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	{% include javascript.html %}
-	
+
+	<!-- Include the course twitter feed, if there is one. -->
+	{% if site.twitter %}
+		{% include twitter.html %}
+	{% endif %}
+
 	{% include discus.html %}
 	{% include analytics.html %}
   </body>

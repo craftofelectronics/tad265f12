@@ -56,7 +56,7 @@ jQuery(document).ready(function() {
 		}
 		
 		//$('#due-dates').text(data.length + ' Due Dates');
-		$('#due-dates').append(ul);
+		$('#due-dates').append(tab);
 	});
 	
 	
