@@ -1,0 +1,11 @@
+{% comment %}
+From http://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar
+{% endcomment %}
+
+{% for node in pages_list %}
+  {% if group == null or group == node.group %}
+      <li><a href="/{{ site.repos }}{{ node.url }}">{{node.title}}</a></li>
+  {% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}

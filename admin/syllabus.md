@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Syllabus"
+group: "Admin"
 ---
 
 # Syllabus

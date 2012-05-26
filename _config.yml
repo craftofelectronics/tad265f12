@@ -10,7 +10,7 @@ github_root: https://github.com/craftofelectronics/
 
 course: Craft of Electronics
 course_abbrev: CRAFToE
-sections: [["admin", "Admin", [[syllabus, "Syllabus"], [todo, "To Do"]]]]
+sections: ["Admin", "To Do"]
 
 license_url: http://creativecommons.org/licenses/by/3.0/
 license_abbrev: CC BY-SA 3.0
